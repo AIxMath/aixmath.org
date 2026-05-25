@@ -1,0 +1,303 @@
+---
+import '../styles/global.css'
+
+const nodeCards = [
+  {
+    id: '01',
+    titleZh: '讲座与讨论班',
+    titleEn: 'Talks & Seminars',
+    textZh: '围绕 AI for Mathematics、形式化、自动推理与科研工具链组织分享和 reading group。',
+    textEn: 'Talks, reading groups, and workshops around AI for Mathematics, formalization, automated reasoning, and research tooling.',
+    href: 'https://blog.aixmath.org',
+  },
+  {
+    id: '02',
+    titleZh: '博客与科研经验',
+    titleEn: 'Blog & Research Notes',
+    textZh: '记录活动、项目进展、科研经验、工具教程和成员的技术文章。',
+    textEn: 'Activity records, project updates, research notes, tool guides, and technical writing from the community.',
+    href: 'https://blog.aixmath.org',
+  },
+  {
+    id: '03',
+    titleZh: '开放项目',
+    titleEn: 'Open Projects',
+    textZh: '长期维护形式化、benchmark、multi-agent 和 auto research agent 相关实验系统。',
+    textEn: 'Long-running projects across formalization, benchmarks, multi-agent systems, and automated research agents.',
+    href: '#projects',
+  },
+]
+
+const projects = [
+  {
+    label: 'Freek100',
+    titleZh: 'Freek Wiedijk Top 100 形式化进展',
+    titleEn: 'Freek Wiedijk Top 100 formalization progress',
+    textZh: '跟踪经典数学定理形式化进度，并沉淀可复用证明基础设施。',
+    textEn: 'Tracking formalization progress on classic theorems while building reusable proof infrastructure.',
+    href: 'https://100.aixmath.org',
+    color: 'green',
+  },
+  {
+    label: 'Agents',
+    titleZh: 'Multi-agent formalization',
+    titleEn: 'Multi-agent formalization',
+    textZh: '让多个 agent 协作完成证明搜索、库探索、证书稳定和项目管理。',
+    textEn: 'Agents cooperate on proof search, library exploration, certificate stabilization, and project management.',
+    href: 'https://github.com/AIxMath',
+    color: 'blue',
+  },
+  {
+    label: 'Research',
+    titleZh: 'Auto research agent',
+    titleEn: 'Auto research agent',
+    textZh: '面向科研过程的自动化系统：阅读、假设生成、实验、写作与复现。',
+    textEn: 'Automation for research workflows: reading, hypothesis generation, experiments, writing, and reproduction.',
+    href: 'https://github.com/AIxMath',
+    color: 'pink',
+  },
+  {
+    label: 'Archive',
+    titleZh: '讲座 slides 与活动材料',
+    titleEn: 'Seminar slides and activity materials',
+    textZh: '集中保存讲座 slides、活动材料和后续延伸阅读。',
+    textEn: 'A durable archive for talk slides, activity materials, and follow-up readings.',
+    href: 'https://slides.aixmath.org',
+    color: 'yellow',
+  },
+]
+
+const directions = [
+  ['Formalization', '形式化证明与标准库建设'],
+  ['AI4Math', '数学推理模型、benchmark 与评测'],
+  ['Research Agents', '自动科研 agent 与 multi-agent 协作'],
+  ['Knowledge Infrastructure', '数学知识组织、检索与可复现工作流'],
+]
+---
+
+<!doctype html>
+<html lang="zh-Hans" data-lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI x Math | OmegaCombinator</title>
+    <meta
+      name="description"
+      content="AI x Math is a community by OmegaCombinator for talks, formalization, research agents, and open projects around AI for Mathematics."
+    />
+    <meta property="og:title" content="AI x Math | OmegaCombinator" />
+    <meta property="og:description" content="A portal for AI for Mathematics, formalization, research agents, seminars, and open projects." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aixmath.org" />
+    <meta name="theme-color" content="#f7f7f4" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="AI x Math home">
+          <span class="brand-mark" aria-hidden="true">Ω</span>
+          <span>
+            <strong>AI x Math</strong>
+            <small>OmegaCombinator</small>
+          </span>
+        </a>
+        <nav class="top-nav">
+          <a href="#projects"><span class="zh">项目</span><span class="en">Projects</span></a>
+          <a href="https://blog.aixmath.org"><span class="zh">博客</span><span class="en">Blog</span></a>
+          <a href="https://100.aixmath.org">Freek100</a>
+          <a href="#join"><span class="zh">加入</span><span class="en">Join</span></a>
+        </nav>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language">
+          <span data-toggle-label>EN</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">OmegaCombinator presents</p>
+            <h1 id="hero-title">
+              <span class="hero-word">AI</span>
+              <span class="hero-cross">×</span>
+              <span class="hero-word">Math</span>
+            </h1>
+            <p class="hero-lede zh">
+              一个面向 AI for Mathematics 的开放 community：组织讲座与讨论班，推进形式化证明、自动科研 agent 和数学知识基础设施相关项目。
+            </p>
+            <p class="hero-lede en">
+              An open community for AI for Mathematics: talks, seminars, formalization, automated research agents, and mathematical knowledge infrastructure.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#projects"><span class="zh">查看项目</span><span class="en">Explore projects</span></a>
+              <a class="button secondary" href="https://blog.aixmath.org"><span class="zh">阅读博客</span><span class="en">Read the blog</span></a>
+            </div>
+          </div>
+
+          <div class="hero-board" aria-label="AI x Math node map">
+            <div class="orbit-card card-green">
+              <span>Formalization</span>
+              <strong>proofs</strong>
+            </div>
+            <div class="orbit-card card-blue">
+              <span>Agents</span>
+              <strong>research</strong>
+            </div>
+            <div class="orbit-card card-pink">
+              <span>Seminars</span>
+              <strong>community</strong>
+            </div>
+            <div class="omega-node">Ω</div>
+            <svg class="node-lines" viewBox="0 0 520 420" fill="none" aria-hidden="true">
+              <path d="M112 102 C185 52 310 48 400 104" />
+              <path d="M406 112 C454 190 424 310 322 348" />
+              <path d="M319 350 C226 380 132 315 104 204" />
+              <path d="M112 102 C70 178 78 258 149 318" />
+              <circle cx="112" cy="102" r="7" />
+              <circle cx="406" cy="112" r="7" />
+              <circle cx="319" cy="350" r="7" />
+              <circle cx="149" cy="318" r="7" />
+            </svg>
+          </div>
+        </section>
+
+        <section class="node-grid" aria-label="Community nodes">
+          {nodeCards.map(card => (
+            <a class="node-card" href={card.href}>
+              <span class="node-id">{card.id}</span>
+              <h2><span class="zh">{card.titleZh}</span><span class="en">{card.titleEn}</span></h2>
+              <p><span class="zh">{card.textZh}</span><span class="en">{card.textEn}</span></p>
+            </a>
+          ))}
+        </section>
+
+        <section id="projects" class="section-block projects-section">
+          <div class="section-heading">
+            <p class="eyebrow">Project index</p>
+            <h2><span class="zh">常驻项目</span><span class="en">Persistent projects</span></h2>
+            <p>
+              <span class="zh">主站只做导航，把长期项目、博客、slides 和外部系统保持为独立节点。</span>
+              <span class="en">The main site is a portal. Long-running projects, posts, slides, and external systems remain independent nodes.</span>
+            </p>
+          </div>
+          <div class="project-grid">
+            {projects.map(project => (
+              <a class={`project-card ${project.color}`} href={project.href}>
+                <span class="project-label">{project.label}</span>
+                <h3><span class="zh">{project.titleZh}</span><span class="en">{project.titleEn}</span></h3>
+                <p><span class="zh">{project.textZh}</span><span class="en">{project.textEn}</span></p>
+                <span class="project-arrow">↗</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section class="section-block split-section">
+          <div class="research-panel">
+            <p class="eyebrow">Research map</p>
+            <h2><span class="zh">我们关心的问题</span><span class="en">What we work on</span></h2>
+            <div class="direction-list">
+              {directions.map(([title, text]) => (
+                <div class="direction-row">
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="posts-panel">
+            <div class="posts-heading">
+              <div>
+                <p class="eyebrow">From the blog</p>
+                <h2><span class="zh">最新动态</span><span class="en">Latest posts</span></h2>
+              </div>
+              <a href="https://blog.aixmath.org"><span class="zh">全部文章</span><span class="en">All posts</span></a>
+            </div>
+            <div class="post-list" data-post-list>
+              <a class="post-link" href="https://blog.aixmath.org/zecyel/blog/theory-of-computation">
+                <span>2025.10.12</span>
+                <strong>Theory of Computation</strong>
+              </a>
+              <a class="post-link" href="https://blog.aixmath.org/zecyel/blog/hello-to-all">
+                <span>2025.10.06</span>
+                <strong>Hello to all!</strong>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="join" class="join-section" aria-labelledby="join-title">
+          <div>
+            <p class="eyebrow">Join the community</p>
+            <h2 id="join-title"><span class="zh">一起做点真实的东西</span><span class="en">Build real systems with us</span></h2>
+          </div>
+          <p class="zh">
+            如果你对数学、形式化、AI agent、科研自动化、工程基础设施或讲座组织感兴趣，欢迎加入 OmegaCombinator 的 AI x Math community。
+          </p>
+          <p class="en">
+            If you care about mathematics, formalization, AI agents, research automation, infrastructure, or seminar organization, join the AI x Math community by OmegaCombinator.
+          </p>
+          <div class="join-actions">
+            <a class="button primary" href="https://github.com/AIxMath">GitHub</a>
+            <a class="button secondary" href="https://blog.aixmath.org"><span class="zh">查看活动记录</span><span class="en">Read activity notes</span></a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script is:inline>
+      const root = document.documentElement
+      const toggle = document.querySelector('[data-language-toggle]')
+      const toggleLabel = document.querySelector('[data-toggle-label]')
+      const savedLanguage = window.localStorage.getItem('aixmath-language')
+
+      function setLanguage(language) {
+        root.dataset.lang = language
+        root.lang = language === 'en' ? 'en' : 'zh-Hans'
+        if (toggleLabel) toggleLabel.textContent = language === 'en' ? '中' : 'EN'
+        window.localStorage.setItem('aixmath-language', language)
+      }
+
+      setLanguage(savedLanguage === 'en' ? 'en' : 'zh')
+      toggle?.addEventListener('click', () => {
+        setLanguage(root.dataset.lang === 'en' ? 'zh' : 'en')
+      })
+
+      const postList = document.querySelector('[data-post-list]')
+      const endpoint = 'https://news.aixmath.org/api/getPublicBlogs?input=' + encodeURIComponent(JSON.stringify({ json: { page: 1, limit: 4 } }))
+
+      function formatDate(dateString) {
+        const date = new Date(dateString)
+        if (Number.isNaN(date.getTime())) return ''
+        return date.toISOString().slice(0, 10).replaceAll('-', '.')
+      }
+
+      function renderPosts(blogs) {
+        if (!postList || !Array.isArray(blogs) || blogs.length === 0) return
+        postList.innerHTML = ''
+        blogs.slice(0, 4).forEach((blog) => {
+          const author = String(blog.authorName || 'post')
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9_-]+/g, '-')
+          const link = document.createElement('a')
+          link.className = 'post-link'
+          link.href = `https://blog.aixmath.org/${author}/blog/${blog.slug}`
+
+          const date = document.createElement('span')
+          date.textContent = formatDate(blog.createdAt)
+          const title = document.createElement('strong')
+          title.textContent = blog.title
+
+          link.append(date, title)
+          postList.append(link)
+        })
+      }
+
+      fetch(endpoint)
+        .then(response => response.ok ? response.json() : null)
+        .then(payload => renderPosts(payload?.result?.data?.blogs))
+        .catch(() => {})
+    </script>
+  </body>
+</html>
