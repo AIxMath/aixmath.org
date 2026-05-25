@@ -1,14 +1,16 @@
 ---
 import '../styles/global.css'
 
+const blogExploreUrl = 'https://blog.aixmath.org/dash/explore'
+
 const nodeCards = [
   {
     id: '01',
     titleZh: '讲座与讨论班',
     titleEn: 'Talks & Seminars',
-    textZh: '围绕 AI for Mathematics、形式化、自动推理与科研工具链组织分享和 reading group。',
+    textZh: '围绕 AI for Mathematics、形式化、自动推理与科研工具链组织分享和读书会。',
     textEn: 'Talks, reading groups, and workshops around AI for Mathematics, formalization, automated reasoning, and research tooling.',
-    href: 'https://blog.aixmath.org',
+    href: blogExploreUrl,
   },
   {
     id: '02',
@@ -16,13 +18,13 @@ const nodeCards = [
     titleEn: 'Blog & Research Notes',
     textZh: '记录活动、项目进展、科研经验、工具教程和成员的技术文章。',
     textEn: 'Activity records, project updates, research notes, tool guides, and technical writing from the community.',
-    href: 'https://blog.aixmath.org',
+    href: blogExploreUrl,
   },
   {
     id: '03',
     titleZh: '开放项目',
     titleEn: 'Open Projects',
-    textZh: '长期维护形式化、benchmark、multi-agent 和 auto research agent 相关实验系统。',
+    textZh: '长期维护形式化、评测基准、多智能体系统和自动科研智能体相关实验系统。',
     textEn: 'Long-running projects across formalization, benchmarks, multi-agent systems, and automated research agents.',
     href: '#projects',
   },
@@ -30,7 +32,8 @@ const nodeCards = [
 
 const projects = [
   {
-    label: 'Freek100',
+    labelZh: 'Freek100',
+    labelEn: 'Freek100',
     titleZh: 'Freek Wiedijk Top 100 形式化进展',
     titleEn: 'Freek Wiedijk Top 100 formalization progress',
     textZh: '跟踪经典数学定理形式化进度，并沉淀可复用证明基础设施。',
@@ -39,17 +42,19 @@ const projects = [
     color: 'green',
   },
   {
-    label: 'Agents',
-    titleZh: 'Multi-agent formalization',
+    labelZh: '智能体',
+    labelEn: 'Agents',
+    titleZh: '多智能体形式化系统',
     titleEn: 'Multi-agent formalization',
-    textZh: '让多个 agent 协作完成证明搜索、库探索、证书稳定和项目管理。',
+    textZh: '让多个智能体协作完成证明搜索、库探索、证书稳定和项目管理。',
     textEn: 'Agents cooperate on proof search, library exploration, certificate stabilization, and project management.',
     href: 'https://github.com/AIxMath',
     color: 'blue',
   },
   {
-    label: 'Research',
-    titleZh: 'Auto research agent',
+    labelZh: '科研',
+    labelEn: 'Research',
+    titleZh: '自动科研智能体',
     titleEn: 'Auto research agent',
     textZh: '面向科研过程的自动化系统：阅读、假设生成、实验、写作与复现。',
     textEn: 'Automation for research workflows: reading, hypothesis generation, experiments, writing, and reproduction.',
@@ -57,10 +62,11 @@ const projects = [
     color: 'pink',
   },
   {
-    label: 'Archive',
-    titleZh: '讲座 slides 与活动材料',
+    labelZh: '资料库',
+    labelEn: 'Archive',
+    titleZh: '讲座幻灯片与活动材料',
     titleEn: 'Seminar slides and activity materials',
-    textZh: '集中保存讲座 slides、活动材料和后续延伸阅读。',
+    textZh: '集中保存讲座幻灯片、活动材料和后续延伸阅读。',
     textEn: 'A durable archive for talk slides, activity materials, and follow-up readings.',
     href: 'https://slides.aixmath.org',
     color: 'yellow',
@@ -68,15 +74,35 @@ const projects = [
 ]
 
 const directions = [
-  ['Formalization', '形式化证明与标准库建设'],
-  ['AI4Math', '数学推理模型、benchmark 与评测'],
-  ['Research Agents', '自动科研 agent 与 multi-agent 协作'],
-  ['Knowledge Infrastructure', '数学知识组织、检索与可复现工作流'],
+  {
+    titleZh: '形式化证明',
+    titleEn: 'Formalization',
+    textZh: '定理证明、标准库建设与证明工程',
+    textEn: 'Theorem proving, standard-library work, and proof engineering',
+  },
+  {
+    titleZh: 'AI for Mathematics',
+    titleEn: 'AI4Math',
+    textZh: '数学推理模型、评测基准与实验体系',
+    textEn: 'Mathematical reasoning models, benchmarks, and evaluation workflows',
+  },
+  {
+    titleZh: '科研智能体',
+    titleEn: 'Research Agents',
+    textZh: '自动科研智能体与多智能体协作系统',
+    textEn: 'Automated research agents and multi-agent collaboration systems',
+  },
+  {
+    titleZh: '知识基础设施',
+    titleEn: 'Knowledge Infrastructure',
+    textZh: '数学知识组织、检索与可复现工作流',
+    textEn: 'Mathematical knowledge organization, retrieval, and reproducible workflows',
+  },
 ]
 ---
 
 <!doctype html>
-<html lang="zh-Hans" data-lang="zh">
+<html lang="en" data-lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -90,7 +116,8 @@ const directions = [
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aixmath.org" />
     <meta name="theme-color" content="#f7f7f4" />
-    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <div class="page-shell">
@@ -104,48 +131,48 @@ const directions = [
         </a>
         <nav class="top-nav">
           <a href="#projects"><span class="zh">项目</span><span class="en">Projects</span></a>
-          <a href="https://blog.aixmath.org"><span class="zh">博客</span><span class="en">Blog</span></a>
+          <a href={blogExploreUrl}><span class="zh">博客</span><span class="en">Blog</span></a>
           <a href="https://100.aixmath.org">Freek100</a>
           <a href="#join"><span class="zh">加入</span><span class="en">Join</span></a>
         </nav>
         <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language">
-          <span data-toggle-label>EN</span>
+          <span data-toggle-label>CN</span>
         </button>
       </header>
 
       <main>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">OmegaCombinator presents</p>
+            <p class="eyebrow"><span class="zh">OmegaCombinator 出品</span><span class="en">OmegaCombinator presents</span></p>
             <h1 id="hero-title">
               <span class="hero-word">AI</span>
               <span class="hero-cross">×</span>
               <span class="hero-word">Math</span>
             </h1>
             <p class="hero-lede zh">
-              一个面向 AI for Mathematics 的开放 community：组织讲座与讨论班，推进形式化证明、自动科研 agent 和数学知识基础设施相关项目。
+              一个面向 AI for Mathematics 的开放社区：组织讲座与讨论班，推进形式化证明、自动科研智能体和数学知识基础设施相关项目。
             </p>
             <p class="hero-lede en">
               An open community for AI for Mathematics: talks, seminars, formalization, automated research agents, and mathematical knowledge infrastructure.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#projects"><span class="zh">查看项目</span><span class="en">Explore projects</span></a>
-              <a class="button secondary" href="https://blog.aixmath.org"><span class="zh">阅读博客</span><span class="en">Read the blog</span></a>
+              <a class="button secondary" href={blogExploreUrl}><span class="zh">阅读博客</span><span class="en">Read the blog</span></a>
             </div>
           </div>
 
           <div class="hero-board" aria-label="AI x Math node map">
             <div class="orbit-card card-green">
-              <span>Formalization</span>
-              <strong>proofs</strong>
+              <span><span class="zh">形式化</span><span class="en">Formalization</span></span>
+              <strong><span class="zh">证明</span><span class="en">proofs</span></strong>
             </div>
             <div class="orbit-card card-blue">
-              <span>Agents</span>
-              <strong>research</strong>
+              <span><span class="zh">智能体</span><span class="en">Agents</span></span>
+              <strong><span class="zh">科研</span><span class="en">research</span></strong>
             </div>
             <div class="orbit-card card-pink">
-              <span>Seminars</span>
-              <strong>community</strong>
+              <span><span class="zh">讨论班</span><span class="en">Seminars</span></span>
+              <strong><span class="zh">社区</span><span class="en">community</span></strong>
             </div>
             <div class="omega-node">Ω</div>
             <svg class="node-lines" viewBox="0 0 520 420" fill="none" aria-hidden="true">
@@ -173,17 +200,17 @@ const directions = [
 
         <section id="projects" class="section-block projects-section">
           <div class="section-heading">
-            <p class="eyebrow">Project index</p>
+            <p class="eyebrow"><span class="zh">项目索引</span><span class="en">Project index</span></p>
             <h2><span class="zh">常驻项目</span><span class="en">Persistent projects</span></h2>
             <p>
-              <span class="zh">主站只做导航，把长期项目、博客、slides 和外部系统保持为独立节点。</span>
+              <span class="zh">主站只做导航，把长期项目、博客、幻灯片和外部系统保持为独立节点。</span>
               <span class="en">The main site is a portal. Long-running projects, posts, slides, and external systems remain independent nodes.</span>
             </p>
           </div>
           <div class="project-grid">
             {projects.map(project => (
               <a class={`project-card ${project.color}`} href={project.href}>
-                <span class="project-label">{project.label}</span>
+                <span class="project-label"><span class="zh">{project.labelZh}</span><span class="en">{project.labelEn}</span></span>
                 <h3><span class="zh">{project.titleZh}</span><span class="en">{project.titleEn}</span></h3>
                 <p><span class="zh">{project.textZh}</span><span class="en">{project.textEn}</span></p>
                 <span class="project-arrow">↗</span>
@@ -194,13 +221,13 @@ const directions = [
 
         <section class="section-block split-section">
           <div class="research-panel">
-            <p class="eyebrow">Research map</p>
+            <p class="eyebrow"><span class="zh">研究地图</span><span class="en">Research map</span></p>
             <h2><span class="zh">我们关心的问题</span><span class="en">What we work on</span></h2>
             <div class="direction-list">
-              {directions.map(([title, text]) => (
+              {directions.map(direction => (
                 <div class="direction-row">
-                  <strong>{title}</strong>
-                  <span>{text}</span>
+                  <strong><span class="zh">{direction.titleZh}</span><span class="en">{direction.titleEn}</span></strong>
+                  <span><span class="zh">{direction.textZh}</span><span class="en">{direction.textEn}</span></span>
                 </div>
               ))}
             </div>
@@ -208,10 +235,10 @@ const directions = [
           <div class="posts-panel">
             <div class="posts-heading">
               <div>
-                <p class="eyebrow">From the blog</p>
+                <p class="eyebrow"><span class="zh">来自博客</span><span class="en">From the blog</span></p>
                 <h2><span class="zh">最新动态</span><span class="en">Latest posts</span></h2>
               </div>
-              <a href="https://blog.aixmath.org"><span class="zh">全部文章</span><span class="en">All posts</span></a>
+              <a href={blogExploreUrl}><span class="zh">全部文章</span><span class="en">All posts</span></a>
             </div>
             <div class="post-list" data-post-list>
               <a class="post-link" href="https://blog.aixmath.org/zecyel/blog/theory-of-computation">
@@ -228,18 +255,18 @@ const directions = [
 
         <section id="join" class="join-section" aria-labelledby="join-title">
           <div>
-            <p class="eyebrow">Join the community</p>
+            <p class="eyebrow"><span class="zh">加入社区</span><span class="en">Join the community</span></p>
             <h2 id="join-title"><span class="zh">一起做点真实的东西</span><span class="en">Build real systems with us</span></h2>
           </div>
           <p class="zh">
-            如果你对数学、形式化、AI agent、科研自动化、工程基础设施或讲座组织感兴趣，欢迎加入 OmegaCombinator 的 AI x Math community。
+            如果你对数学、形式化、AI 智能体、科研自动化、工程基础设施或讲座组织感兴趣，欢迎加入 OmegaCombinator 的 AI x Math 社区。
           </p>
           <p class="en">
             If you care about mathematics, formalization, AI agents, research automation, infrastructure, or seminar organization, join the AI x Math community by OmegaCombinator.
           </p>
           <div class="join-actions">
             <a class="button primary" href="https://github.com/AIxMath">GitHub</a>
-            <a class="button secondary" href="https://blog.aixmath.org"><span class="zh">查看活动记录</span><span class="en">Read activity notes</span></a>
+            <a class="button secondary" href={blogExploreUrl}><span class="zh">查看活动记录</span><span class="en">Read activity notes</span></a>
           </div>
         </section>
       </main>
@@ -254,11 +281,11 @@ const directions = [
       function setLanguage(language) {
         root.dataset.lang = language
         root.lang = language === 'en' ? 'en' : 'zh-Hans'
-        if (toggleLabel) toggleLabel.textContent = language === 'en' ? '中' : 'EN'
+        if (toggleLabel) toggleLabel.textContent = language === 'en' ? 'CN' : 'EN'
         window.localStorage.setItem('aixmath-language', language)
       }
 
-      setLanguage(savedLanguage === 'en' ? 'en' : 'zh')
+      setLanguage(savedLanguage === 'zh' ? 'zh' : 'en')
       toggle?.addEventListener('click', () => {
         setLanguage(root.dataset.lang === 'en' ? 'zh' : 'en')
       })
