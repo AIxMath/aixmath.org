@@ -241,11 +241,11 @@ const directions = [
               <a href={blogExploreUrl}><span class="zh">全部文章</span><span class="en">All posts</span></a>
             </div>
             <div class="post-list" data-post-list>
-              <a class="post-link" href="https://blog.aixmath.org/zecyel/blog/theory-of-computation">
+              <a class="post-link" href="https://blog.aixmath.org/blog/theory-of-computation">
                 <span>2025.10.12</span>
                 <strong>Theory of Computation</strong>
               </a>
-              <a class="post-link" href="https://blog.aixmath.org/zecyel/blog/hello-to-all">
+              <a class="post-link" href="https://blog.aixmath.org/blog/hello-to-all">
                 <span>2025.10.06</span>
                 <strong>Hello to all!</strong>
               </a>
@@ -303,13 +303,9 @@ const directions = [
         if (!postList || !Array.isArray(blogs) || blogs.length === 0) return
         postList.innerHTML = ''
         blogs.slice(0, 4).forEach((blog) => {
-          const author = String(blog.authorName || 'post')
-            .trim()
-            .toLowerCase()
-            .replace(/[^a-z0-9_-]+/g, '-')
           const link = document.createElement('a')
           link.className = 'post-link'
-          link.href = `https://blog.aixmath.org/${author}/blog/${blog.slug}`
+          link.href = `https://blog.aixmath.org/blog/${blog.slug}`
 
           const date = document.createElement('span')
           date.textContent = formatDate(blog.createdAt)
