@@ -2,6 +2,7 @@
 import '../styles/global.css'
 
 const blogExploreUrl = 'https://blog.aixmath.org/dash/explore'
+const newsUrl = 'https://news.aixmath.org'
 
 const nodeCards = [
   {
@@ -27,6 +28,14 @@ const nodeCards = [
     textZh: '长期维护形式化、评测基准、多智能体系统和自动科研智能体相关实验系统。',
     textEn: 'Long-running projects across formalization, benchmarks, multi-agent systems, and automated research agents.',
     href: '#projects',
+  },
+  {
+    id: '04',
+    titleZh: '新闻与动态',
+    titleEn: 'News & Updates',
+    textZh: '对外发布的活动公告、社区新闻与重要更新。',
+    textEn: 'Public announcements, community news, and major updates.',
+    href: newsUrl,
   },
 ]
 
@@ -118,6 +127,7 @@ const directions = [
     <meta name="theme-color" content="#f7f7f4" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={Astro.site?.href ?? 'https://aixmath.org/'} />
   </head>
   <body>
     <div class="page-shell">
@@ -132,6 +142,7 @@ const directions = [
         <nav class="top-nav">
           <a href="#projects"><span class="zh">项目</span><span class="en">Projects</span></a>
           <a href={blogExploreUrl}><span class="zh">博客</span><span class="en">Blog</span></a>
+          <a href={newsUrl}><span class="zh">动态</span><span class="en">News</span></a>
           <a href="https://100.aixmath.org">Freek100</a>
           <a href="#join"><span class="zh">加入</span><span class="en">Join</span></a>
         </nav>
