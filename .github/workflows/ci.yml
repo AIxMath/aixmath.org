@@ -34,5 +34,7 @@ jobs:
           test -f dist/index.html
           # The portal declares its own canonical origin.
           grep -q 'rel="canonical" href="https://aixmath.org/' dist/index.html
-          # The navigation must keep pointing at the news site.
-          grep -q 'news\.aixmath\.org' dist/index.html
+          # The navigation must link to the news site. Match the link itself:
+          # the page also calls that host's public blog API at runtime, so a
+          # bare host-name match would pass even without the link.
+          grep -q 'href="https://news\.aixmath\.org"' dist/index.html
