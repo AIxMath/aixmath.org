@@ -1,0 +1,47 @@
+name: Notify self-hosted deploy
+
+# This portal is published by a self-hosted release pipeline. A push to `main`
+# sends a signed notification to that pipeline's deploy API, which pulls this
+# exact commit, runs the build, and swaps the published release atomically.
+#
+# It is a notification only: it does not gate CI, it is skipped when the
+# AI4MATH_DEPLOY_WEBHOOK_SECRET secret is not configured, and it is independent
+# of the CI workflow. The endpoint comes from the AI4MATH_DEPLOY_WEBHOOK_URL
+# repository variable.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: notify-self-hosted-deploy
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send deploy webhook
+        env:
+          WEBHOOK_URL: ${{ vars.AI4MATH_DEPLOY_WEBHOOK_URL || 'https://api.aixmath.org/webhook/github' }}
+          WEBHOOK_SECRET: ${{ secrets.AI4MATH_DEPLOY_WEBHOOK_SECRET }}
+          REPOSITORY: ${{ github.repository }}
+          REF: ${{ github.ref }}
+          AFTER: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${WEBHOOK_SECRET}" ]; then
+            echo "::warning::AI4MATH_DEPLOY_WEBHOOK_SECRET is not configured; skipping the self-hosted deploy notification."
+            exit 0
+          fi
+          payload="$(printf '{"source":"github-actions","repository":"%s","ref":"%s","after":"%s"}' "$REPOSITORY" "$REF" "$AFTER")"
+          signature="sha256=$(printf '%s' "$payload" | openssl dgst -sha256 -hmac "$WEBHOOK_SECRET" | awk '{print $NF}')"
+          curl --fail-with-body -sS -m 30 -X POST "$WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -H "X-AI4Math-Signature: $signature" \
+            --data-binary "$payload"
