@@ -1,0 +1,9 @@
+# pnpm 10+ refuses to complete an install (and to run scripts afterwards) while
+# any dependency build script is unapproved. esbuild and sharp ship prebuilt
+# binaries that their install scripts wire up, so they are approved here.
+allowBuilds:
+  esbuild: true
+  sharp: true
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
